@@ -5,7 +5,7 @@ plugins {
 }
 
 group 'io.github.moesama'
-version '1.0.0-SNAPSHOT'
+version '1.0.0'
 
 repositories {
     mavenCentral()
@@ -26,15 +26,29 @@ bintray {
     user = 'moesama'
     key = 'd611e0cfe0a219499fdaf9f04b8341788188fa11'
     publications = ['BintrayPublish']
+    pkg {
+        repo = 'Maven'
+        name = project.name
+        userOrg = user
+        licenses = ['MIT']
+        vcsUrl = 'https://github.com/moesama/KotlinPromise.git'
+        labels = ['promise', 'kotlin']
+        publicDownloadNumbers = true
+        version {
+            name = project.version
+            desc = "Kotlin Promise Library ${project.version}"
+            vcsTag = project.version
+        }
+    }
 }
 
 publishing {
     publications {
         BintrayPublish(MavenPublication) {
             from components.java
-            groupId group
-            artifactId name
-            version version
+            groupId project.group
+            artifactId project.name
+            version project.version
         }
     }
 }
