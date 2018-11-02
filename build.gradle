@@ -1,0 +1,40 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.0'
+    id "com.jfrog.bintray" version "1.8.4"
+    id 'maven-publish'
+}
+
+group 'io.github.moesama'
+version '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+
+bintray {
+    user = 'moesama'
+    key = 'd611e0cfe0a219499fdaf9f04b8341788188fa11'
+    publications = ['BintrayPublish']
+}
+
+publishing {
+    publications {
+        BintrayPublish(MavenPublication) {
+            from components.java
+            groupId group
+            artifactId name
+            version version
+        }
+    }
+}
