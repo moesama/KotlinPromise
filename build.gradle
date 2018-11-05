@@ -6,6 +6,20 @@ plugins {
     id 'nebula.source-jar' version '9.2.0'
 }
 
+def readLocalProperties() {
+    File file = rootProject.file('local.properties')
+    if (file.exists()) {
+        //加载资源
+        InputStream inputStream = file.newDataInputStream()
+        Properties localProperties = new Properties()
+        localProperties.load(inputStream)
+        ext.bintrayUser = localProperties.getProperty('bintray.user')
+        ext.bintrayKey = localProperties.getProperty('bintray.key')
+    }
+}
+
+readLocalProperties()
+
 group 'io.github.moesama'
 version '1.0.0'
 
@@ -25,8 +39,8 @@ compileTestKotlin {
 }
 
 bintray {
-    user = 'moesama'
-    key = 'd611e0cfe0a219499fdaf9f04b8341788188fa11'
+    user = "${bintrayUser}"
+    key = "${bintrayKey}"
     publications = ['nebula']
     pkg {
         repo = 'Maven'

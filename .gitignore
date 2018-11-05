@@ -14,3 +14,5 @@
 .gradle
 out
 gen
+
+local.properties

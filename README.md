@@ -1,13 +1,13 @@
 # KotlinPromise
 
-[![GitHub release](https://img.shields.io/github/release/moesama/KotlinPromise.svg)](https://github.com/moesama/KotlinPromise)[![GitHub license](https://img.shields.io/github/license/moesama/KotlinPromise.svg)](https://github.com/moesama/KotlinPromise/blob/master/LICENSE)
+[![GitHub release](https://img.shields.io/github/release/moesama/KotlinPromise.svg)](https://github.com/moesama/KotlinPromise) [![GitHub license](https://img.shields.io/github/license/moesama/KotlinPromise.svg)](https://github.com/moesama/KotlinPromise/blob/master/LICENSE)
 
 A kotlin library which provides promise apis just like javascript.
 
 ## Implementation
 
 ```groovy
-compile 'io.github.moesama:kotlin-promise:1.0.0'
+implementation 'io.github.moesama:kotlin-promise:1.0.0'
 ```
 
 
